@@ -239,7 +239,7 @@ class Game:
                 self.running = False
                 pygame.quit()
                 sys.exit()
-            if (event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE) and self.paused == True:
+            if (event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE) and self.paused == True: # Replay game
                 game = Game()
                 game.run()
             if event.type == pygame.KEYDOWN:
