@@ -7,8 +7,8 @@ import neat
 # Initialize game
 pygame.init()
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 550
+SCREEN_WIDTH = 700
+SCREEN_HEIGHT = 400
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Google Dino")
 clock = pygame.time.Clock()
@@ -17,7 +17,7 @@ clock = pygame.time.Clock()
 FPS = 60
 GRAVITY = 1
 JUMP_STRENGTH = -16
-GROUND_LEVEL = 400
+GROUND_LEVEL = 230
 generation = 0
 
 # Load assets
@@ -413,7 +413,10 @@ def run_neat(config_path):
 
     print('\nBest genome:\n{!s}'.format(winner))
 
-if __name__ == "__main__":
+def run_AI_google_dino():
     local_dir = os.path.dirname((__file__))
     config_path = os.path.join(local_dir, "neat-config.txt")
     run_neat(config_path)
+
+if __name__ == "__main__":
+    run_AI_google_dino()

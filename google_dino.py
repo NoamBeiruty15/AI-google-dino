@@ -350,6 +350,9 @@ class Game:
             clock.tick(FPS)
 
 # Start the game
-if __name__ == "__main__":
+def run_google_dino():
     game = Game()
     game.run()
+
+if __name__ == "__main__":
+    run_google_dino()
