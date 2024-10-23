@@ -150,7 +150,7 @@ class Bird:
                 offset_y = self.rect.y - dino.rect.y
 
                 if dino.mask.overlap(pygame.mask.from_surface(self.image), (offset_x, offset_y)):
-                    dinos.remove(dino)  
+                    return True  
 
 class Cactus:
     def __init__(self, image_name, x):
@@ -213,7 +213,7 @@ class Cactus:
                 offset_y = self.rect.y - dino.rect.y
                 
                 if dino.mask.overlap(pygame.mask.from_surface(self.image), (offset_x, offset_y)):
-                    dinos.remove(dino)
+                    return True
  
 
 
@@ -231,15 +231,20 @@ class Game:
         self.obstacle_spawn_ticker = 0
         self.min_score_birds_start_spawning = 600
         self.obstacle_index = 0
+        self.paused = False
 
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
+                pygame.quit()
+                sys.exit()
+            if (event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE) and self.paused == True:
+                game = Game()
+                game.run()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.dinos[0].jump()
-                    print(self.obstacles[self.obstacle_index].rect.x - self.dinos[0].rect.x)
                 if event.key == pygame.K_DOWN:
                     self.dinos[0].duck()
             if event.type == pygame.KEYUP:
@@ -287,6 +292,8 @@ class Game:
                     return
 
     def update(self):
+        if self.paused:
+            return
         if not self.dinos:
             self.running = False
 
@@ -305,7 +312,9 @@ class Game:
                     continue
 
                 obstacle.update(self.gamespeed)
-                obstacle.check_colliding(self.dinos)
+
+                if obstacle.check_colliding(self.dinos):
+                    self.paused = True
 
 
         self.ground.update(self.gamespeed)
