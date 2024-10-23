@@ -313,7 +313,7 @@ class Game:
         self.obstacles.append(new_bird)
     
     def spawn_obstacles(self):
-        if self.obstacle_spawn_ticker >= random.randint(50, 200):
+        if self.obstacle_spawn_ticker >= random.randint(45, 200):
             # Check if score is high enough to spawn birds
             if self.score >= self.min_score_birds_start_spawning:
                 if random.randint(1, 100) <= 75:
