@@ -414,6 +414,8 @@ def run_neat(config_path):
     print('\nBest genome:\n{!s}'.format(winner))
 
 def run_AI_google_dino():
+    global generation
+    generation = 0
     local_dir = os.path.dirname((__file__))
     config_path = os.path.join(local_dir, "neat-config.txt")
     run_neat(config_path)
