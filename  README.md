@@ -11,11 +11,11 @@ AI Google dino, a Python-based implementation of the classic Google dino game, e
 
 ## Features
 
-- **AI Player**: Uses NEAT to evolve neural networks that control the bird.
-- **User Player**: Space bar to jump, the user controls the bird.
+- **AI Player**: Uses NEAT to evolve neural networks that control the dino.
+- **User Player**: Space bar to jump, down arrow to duck, the user controls the dino.
 - **User Interface**: Pygame-based UI with smooth graphics and animations.
-- **Dynamic Environment**: Pipes spawn randomly, making the game more challenging.
-- **Score Tracking**: Keeps track of the score based on pipes passed.
+- **Dynamic Environment**: Obstacles spawn randomly, making the game more challenging.
+- **Score Tracking**: Keeps track of the score based on time.
 
 ### Dependencies
 
@@ -35,5 +35,5 @@ pip install neat-python
 
 2. Clone the repository:
    ```bash
-    git clone https://github.com/NoamBeiruty15/AI-flappy-bird
+    git clone https://github.com/NoamBeiruty15/AI-google-dino
     ``` 
