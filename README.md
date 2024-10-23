@@ -4,7 +4,7 @@ AI Google dino, a Python-based implementation of the classic Google dino game, e
 
 ![Example of the A.I dinos in action](images/Dinos_in_action.png)
 
-![Example of the A.I dinos in action](videos/demo.mov)
+![Example of the A.I dinos in action](images/demo.png)
 
 ## Table of Contents
 
