@@ -325,7 +325,6 @@ class Game:
                 if random.randint(1, 100) <= 80:
                     self.spawn_cactus()
             
-            # Reset the ticker after spawning
             self.obstacle_spawn_ticker = 0
 
     def update(self):
@@ -365,7 +364,7 @@ class Game:
                     self.is_dino_saved = True
 
     def render(self):
-        screen.fill((255, 255, 255))  # White background
+        screen.fill((255, 255, 255))  
         self.ground.draw(screen)
 
         for obstacle in self.obstacles:
