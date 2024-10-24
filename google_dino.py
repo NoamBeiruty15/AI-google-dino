@@ -318,7 +318,6 @@ class Game:
 
                 if obstacle.check_colliding(self.dinos):
                     self.paused = True
-                    self.dinos[0].image = DINO_DEAD_IMAGE
 
 
         self.ground.update(self.gamespeed)
