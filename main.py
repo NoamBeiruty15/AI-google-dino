@@ -3,7 +3,7 @@ import sys
 import os
 
 from google_dino import run_google_dino
-from AI_google_dino import run_AI_google_dino  
+from train_AI_google_dino import train_AI_google_dino 
 
 # Initialize Pygame
 pygame.init()
@@ -51,9 +51,9 @@ class Button:
             if self.action:
                 self.action()  
 
-# Create buttons with associated actions
-button1 = Button("Play", (120, 125), (200, 50), action=run_google_dino)  
-button2 = Button("Train A.I.", (380, 125), (200, 50), action=run_AI_google_dino)
+buttons = [Button("Play", (120, 125), (200, 50), action=run_google_dino),  
+            Button("Train A.I.", (380, 125), (200, 50), action=train_AI_google_dino)]
+
 
 # Main loop
 while True:
@@ -62,8 +62,8 @@ while True:
             pygame.quit()
             sys.exit()
 
-    button1.is_pressed()
-    button2.is_pressed()
+    for button in buttons:
+        button.is_pressed()
 
     screen.fill((255, 255, 255))
 
@@ -71,8 +71,9 @@ while True:
     screen.blit(DINO_IMG, (50, 235))
 
     # Draw buttons
-    button1.draw(screen)
-    button2.draw(screen)
+    for button in buttons:
+        button.is_pressed()
+        button.draw(screen)
 
     # Update the display
     pygame.display.flip()

@@ -239,6 +239,9 @@ class Game:
                 self.running = False
                 pygame.quit()
                 sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:  
+                    self.running = False
             if (event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE) and self.paused == True: # Replay game, for ever
                 game = Game()
                 game.run()
@@ -315,6 +318,7 @@ class Game:
 
                 if obstacle.check_colliding(self.dinos):
                     self.paused = True
+                    self.dinos[0].image = DINO_DEAD_IMAGE
 
 
         self.ground.update(self.gamespeed)
